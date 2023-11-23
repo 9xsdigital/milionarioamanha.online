@@ -29,6 +29,7 @@ const addSpinAnimation = (element) => {
   element.addEventListener('click', () => {
     animateSpin();
     animateSteps(1);
+    roletaGirando()
 
     setTimeout(() => {
       try {
@@ -40,6 +41,7 @@ const addSpinAnimation = (element) => {
         if (section01 && section02) {
           section01.style.display = 'none';
           section02.style.display = 'block';
+          premioCaindo ()
         }
       } catch (error) {
         console.error("Error changing section displays: ", error);
@@ -50,3 +52,16 @@ const addSpinAnimation = (element) => {
 
 // Add event listener to all elements with the class .runSpin
 document.querySelectorAll('.runSpin').forEach(addSpinAnimation);
+
+function roletaGirando() {
+  const audioRodando = document.getElementById('audio-rodando')
+  audioRodando.play()
+}
+
+function premioCaindo () {
+  const premioCaindo = document.getElementById('premio-caindo')
+
+  setTimeout ( () => {
+    premioCaindo.play()
+  }, 100) 
+}
