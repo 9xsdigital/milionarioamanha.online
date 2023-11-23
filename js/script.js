@@ -41,7 +41,6 @@ const addSpinAnimation = (element) => {
         if (section01 && section02) {
           section01.style.display = 'none';
           section02.style.display = 'block';
-          premioCaindo ()
         }
       } catch (error) {
         console.error("Error changing section displays: ", error);
@@ -56,12 +55,17 @@ document.querySelectorAll('.runSpin').forEach(addSpinAnimation);
 function roletaGirando() {
   const audioRodando = document.getElementById('audio-rodando')
   audioRodando.play()
+  setTimeout (()=> {
+    console.log('ok')
+  },1000)
+  audioRodando.onended = () => {
+    console.log('teste')
+    premioCaindo ()
+  }
+
 }
 
 function premioCaindo () {
   const premioCaindo = document.getElementById('premio-caindo')
-
-  setTimeout ( () => {
-    premioCaindo.play()
-  }, 100) 
+  premioCaindo.play()
 }
